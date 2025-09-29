@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jinesh Patil — Portfolio</title>
+  <meta name="description" content="Jinesh Patil — Chemical Engineer transitioning to Web Development & Data Science. Portfolio showcasing projects, skills and contact details." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    /* Reset and Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a; /* slate-900 */
+      color: #cbd5e1; /* slate-300 */
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Utility Classes */
+    .container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    @media (min-width: 640px) { .container { max-width: 640px; padding-left: 1.5rem; padding-right: 1.5rem; } }
+    @media (min-width: 768px) { .container { max-width: 768px; } }
+    @media (min-width: 1024px) { .container { max-width: 1024px; padding-left: 2rem; padding-right: 2rem; } }
+    @media (min-width: 1280px) { .container { max-width: 1280px; } }
+
+    .text-gradient {
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+    }
+    .btn-secondary:hover {
+      background-color: #334155;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .brand-logo {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: linear-gradient(to bottom right, #38bdf8, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      color: white;
+      font-weight: bold;
+      font-size: 1.125rem;
+    }
+    .brand-text-main {
+      font-weight: bold;
+      color: white;
+      font-size: 1rem;
+    }
+    .brand-text-sub {
+      font-size: 0.75rem;
+      color: #94a3b8; /* slate-400 */
+    }
+    header nav {
+      display: none; /* Hidden on mobile */
+    }
+    header nav a {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #cbd5e1; /* slate-300 */
+      text-decoration: none;
+      border-radius: 0.375rem;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    header nav a:hover {
+      background-color: #334155; /* slate-700 */
+      color: white;
+    }
+    @media (min-width: 768px) {
+      header nav {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    /* Main Content & Sections */
+    main {
+      padding-top: 4rem; /* Offset for fixed header */
+    }
+    section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    section h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      text-align: center;
+      color: white;
+      margin-bottom: 2.5rem;
+    }
+    .section-bg {
+      background-color: rgba(30, 41, 59, 0.2);
+    }
+
+    /* Hero Section */
+    #hero {
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-text {
+      text-align: center;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+    }
+    .hero-text > p {
+      margin-top: 1rem;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.125rem;
+      color: #94a3b8; /* slate-400 */
+    }
+    .hero-buttons {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .hero-status-text {
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: #64748b; /* slate-500 */
+    }
+    .hero-image-card {
+      padding: 1rem;
+    }
+    .hero-image-card img {
+      border-radius: 0.5rem;
+    }
+    .hero-image-subcard {
+      margin-top: 1rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-image-subcard > div > p:first-child { font-weight: bold; color: white; }
+    .hero-image-subcard > div > p:last-child { font-size: 0.75rem; color: #94a3b8; }
+    .hero-image-subcard a { font-size: 0.75rem; padding: 0.375rem 0.75rem; }
+
+    @media (min-width: 640px) {
+      .hero-text h1 { font-size: 3rem; }
+      .hero-buttons { flex-direction: row; justify-content: center; }
+    }
+    @media (min-width: 1024px) {
+      #hero { padding-top: 8rem; }
+      .hero-grid { grid-template-columns: repeat(5, 1fr); }
+      .hero-text { text-align: left; grid-column: span 3; }
+      .hero-text > p { margin-left: 0; }
+      .hero-buttons { justify-content: flex-start; }
+      .hero-image-wrapper { grid-column: span 2; }
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .about-main h3, .about-aside h4 { font-size: 1.25rem; font-weight: bold; color: white; }
+    .about-main p { margin-top: 0.75rem; color: #94a3b8; }
+    .about-aside ul { margin-top: 1rem; list-style-position: inside; }
+    .about-aside ul li { margin-top: 0.5rem; font-size: 0.875rem; color: #94a3b8; }
+    .about-aside .btn { margin-top: 1rem; }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: repeat(3, 1fr); }
+      .about-main { grid-column: span 2; }
+    }
+    
+    /* Skills Section */
+    .skills-card {
+      max-width: 56rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1.5rem;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .skills-grid h3 { font-size: 1.25rem; font-weight: bold; color: white; }
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .skill-tag {
+      background-color: #334155;
+      color: #cbd5e1;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+    }
+    @media (min-width: 768px) {
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .project-card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card img {
+      width: 100%;
+      height: 12rem;
+      object-fit: cover;
+    }
+    .project-card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .project-card-content h3 { font-size: 1.125rem; font-weight: bold; color: white; }
+    .project-card-content p {
+      margin-top: 0.5rem;
+      color: #94a3b8;
+      font-size: 0.875rem;
+      flex-grow: 1;
+    }
+    @media (min-width: 640px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .projects-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Resume Section */
+    .resume-card {
+      max-width: 42rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .resume-card h2 { margin-bottom: 0; font-size: 1.5rem; }
+    .resume-card p { margin-top: 0.75rem; color: #94a3b8; }
+    .resume-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+    .resume-buttons .btn { width: 100%; }
+    @media (min-width: 640px) {
+      .resume-buttons { flex-direction: row; }
+      .resume-buttons .btn { width: auto; }
+    }
+
+    /* Contact Section */
+    .contact-card {
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+    .contact-card p { text-align: center; color: #94a3b8; }
+    .contact-links { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .contact-links a {
+      display: block;
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(51, 65, 85, 0.5);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: #cbd5e1;
+      transition: background-color 0.2s;
+    }
+    .contact-links a:hover {
+      background-color: #334155;
+    }
+    .contact-links a strong {
+      color: white;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid #334155;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+    footer .footer-name {
+      font-weight: bold;
+      color: #cbd5e1;
+    }
+    footer p {
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <!-- Brand -->
+        <a href="#" class="brand">
+          <div class="brand-logo">JP</div>
+          <div>
+            <p class="brand-text-main">Jinesh Patil</p>
+            <p class="brand-text-sub">Chemical Engineer → Web Dev & Data Science</p>
+          </div>
+        </a>
+        <!-- Desktop Navigation -->
+        <nav>
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>Hi — I'm <span class="text-gradient">Jinesh Patil</span></h1>
+            <p>A Chemical Engineer with a passion for problem-solving, now transitioning into the world of Web Development and Data Science.</p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary">View Projects</a>
+              <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+            <p class="hero-status-text">
+              <strong>Seeking:</strong> Entry-level roles or internships in Web Development or Data Science. Open to relocation.
+            </p>
+          </div>
+          <div class="hero-image-wrapper">
+            <div class="card hero-image-card">
+              <img src="./jinesh p.JPG" alt="Jinesh Patil Profile Photo" />
+              <div class="card hero-image-subcard">
+                  <div>
+                    <p>Open to Work</p>
+                    <p>Full-time & Internships</p>
+                  </div>
+                  <a href="#resume" class="btn btn-primary">Resume</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-bg">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="about-grid">
+          <div class="card about-main">
+            <h3>Chemical Engineer turned Developer & Data Enthusiast</h3>
+            <p>I graduated with a Chemical Engineering degree where I honed my skills in analytical problem-solving, process optimization, and data-driven decision making. My final year projects, which involved data analysis and simulation, sparked my interest in programming and web technologies.</p>
+            <p>I'm currently advancing my expertise through online courses in web development and data science, eager to apply my unique blend of engineering and technical skills to new challenges.</p>
+          </div>
+          <aside class="card about-aside">
+            <h4>Quick Facts</h4>
+            <ul>
+              <li><strong>Education:</strong> B.Tech — Chemical Engineering</li>
+              <li><strong>Seeking:</strong> Web Dev, Data Science, ML Intern</li>
+              <li><strong>Strengths:</strong> Quick learner, hands-on, analytical</li>
+            </ul>
+            <a href="#projects" class="btn btn-secondary">See Projects</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="card skills-card">
+            <div class="skills-grid">
+              <div>
+                <h3>Technical Skills</h3>
+                <div class="skills-tags">
+                  <span class="skill-tag">HTML & CSS</span>
+                  <span class="skill-tag">JavaScript</span>
+                  <span class="skill-tag">SQL</span>
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Data Analysis</span>
+                </div>
+              </div>
+              <div>
+                <h3>Soft Skills</h3>
+                <div class="skills-tags">
+                  <span class="skill-tag">Analytical Thinking</span>
+                  <span class="skill-tag">Problem Solving</span>
+                  <span class="skill-tag">Team Collaboration</span>
+                  <span class="skill-tag">Communication</span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-bg">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+              <article class="project-card">
+                <img src="./image1.png" alt="Portfolio site screenshot">
+                <div class="project-card-content">
+                  <h3>Personal Portfolio Website</h3>
+                  <p>A single-page responsive portfolio built with HTML & CSS to showcase my skills and projects.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <img src="./image2.png" alt="Blog app screenshot">
+                <div class="project-card-content">
+                  <h3>Interactive Blog Page</h3>
+                  <p>A lightweight, server-side rendered blog application built with Node.js and Express. Inspired by the clean, content-focused design of Paul Graham's essays, this project allows users to create, read, update, and delete posts.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <img src="./image3.png" alt="Database analysis screenshot">
+                <div class="project-card-content">
+                  <h3>AdventureWorks Database Analysis</h3>
+                  <p>Analyzed enterprise-scale database with 70+ tables. Developed complex SQL queries for customer analytics and sales performance tracking. Implemented time-series analysis for month-over-month business intelligence.</p>
+                </div>
+              </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+      <div class="container">
+        <div class="card resume-card">
+          <h2>My Resume</h2>
+          <p>For a detailed look at my experience and qualifications, please download my resume.</p>
+          <div class="resume-buttons">
+            <a href="./Jinesh Patil.pdf" download class="btn btn-primary">Download Resume (PDF)</a>
+            <a href="#contact" class="btn btn-secondary">Contact for Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-bg">
+      <div class="container">
+        <h2>Get In Touch</h2>
+        <div class="card contact-card">
+            <p>I'm always open to discussing new opportunities. Feel free to reach out through any of the platforms below.</p>
+            <div class="contact-links">
+                <a href="mailto:jineshpatil68@gmail.com">
+                  <strong>Email:</strong> jineshpatil68@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/jinesh-patil" target="_blank" rel="noopener noreferrer">
+                  <strong>LinkedIn:</strong> Jinesh Patil
+                </a>
+                <a href="https://github.com/JineshPatil45" target="_blank" rel="noopener noreferrer">
+                  <strong>GitHub:</strong> JineshPatil45
+                </a>
+            </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+        <p class="footer-name">Jinesh Patil</p>
+        <p>Entry-level Web Developer & Data Science Enthusiast</p>
+        <p>&copy; 2025 — Built with HTML & CSS.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
