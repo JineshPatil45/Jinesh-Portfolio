@@ -1,585 +1,336 @@
-<!doctype html>
-<html lang="en" style="scroll-behavior: smooth;">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jinesh Patil — Portfolio</title>
-  <meta name="description" content="Jinesh Patil — Chemical Engineer transitioning to Data Scientist & Data Analyst. Portfolio showcasing projects, skills and contact details." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jinesh Patil - Chemical Engineering Graduate transitioning to Data Scientist & Data Analyst" />
+    <title>Jinesh Patil - Portfolio</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Custom CSS -->
-  <style>
-    /* Reset and Base Styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0f172a; /* slate-900 */
-      color: #cbd5e1; /* slate-300 */
-      line-height: 1.6;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Utility Classes */
-    .container {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    @media (min-width: 640px) { .container { max-width: 640px; padding-left: 1.5rem; padding-right: 1.5rem; } }
-    @media (min-width: 768px) { .container { max-width: 768px; } }
-    @media (min-width: 1024px) { .container { max-width: 1024px; padding-left: 2rem; padding-right: 2rem; } }
-    @media (min-width: 1280px) { .container { max-width: 1280px; } }
-
-    .text-gradient {
-      background: linear-gradient(90deg, #38bdf8, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .card {
-      background-color: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.375rem;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: all 0.2s ease-in-out;
-    }
-    .btn-primary {
-      background: linear-gradient(90deg, #38bdf8, #6366f1);
-      color: #fff;
-    }
-    .btn-primary:hover {
-      opacity: 0.9;
-    }
-    .btn-secondary {
-      background-color: transparent;
-      border: 1px solid #334155;
-      color: #cbd5e1;
-    }
-    .btn-secondary:hover {
-      background-color: #334155;
-    }
-
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 4rem;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-    .brand-logo {
-      width: 2.5rem;
-      height: 2.5rem;
-      background: linear-gradient(to bottom right, #38bdf8, #6366f1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 0.5rem;
-      color: white;
-      font-weight: bold;
-      font-size: 1.125rem;
-    }
-    .brand-text-main {
-      font-weight: bold;
-      color: white;
-      font-size: 1rem;
-    }
-    .brand-text-sub {
-      font-size: 0.75rem;
-      color: #94a3b8; /* slate-400 */
-    }
-    header nav {
-      display: none; /* Hidden on mobile */
-    }
-    header nav a {
-      padding: 0.5rem 0.75rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #cbd5e1; /* slate-300 */
-      text-decoration: none;
-      border-radius: 0.375rem;
-      transition: background-color 0.2s, color 0.2s;
-    }
-    header nav a:hover {
-      background-color: #334155; /* slate-700 */
-      color: white;
-    }
-    @media (min-width: 768px) {
-      header nav {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-    }
-
-    /* Main Content & Sections */
-    main {
-      padding-top: 4rem; /* Offset for fixed header */
-    }
-    section {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-    section h2 {
-      font-size: 1.875rem;
-      font-weight: 700;
-      text-align: center;
-      color: white;
-      margin-bottom: 2.5rem;
-    }
-    .section-bg {
-      background-color: rgba(30, 41, 59, 0.2);
-    }
-
-    /* Hero Section */
-    #hero {
-      padding-top: 6rem;
-      padding-bottom: 4rem;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .hero-text {
-      text-align: center;
-    }
-    .hero-text h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: white;
-      line-height: 1.2;
-    }
-    .hero-text > p {
-      margin-top: 1rem;
-      max-width: 36rem;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1.125rem;
-      color: #94a3b8; /* slate-400 */
-    }
-    .hero-buttons {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-    .hero-status-text {
-      margin-top: 1.5rem;
-      font-size: 0.875rem;
-      color: #64748b; /* slate-500 */
-    }
-    .hero-image-card {
-      padding: 1rem;
-    }
-    .hero-image-card img {
-      border-radius: 0.5rem;
-    }
-    .hero-image-subcard {
-      margin-top: 1rem;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .hero-image-subcard > div > p:first-child { font-weight: bold; color: white; }
-    .hero-image-subcard > div > p:last-child { font-size: 0.75rem; color: #94a3b8; }
-    .hero-image-subcard a { font-size: 0.75rem; padding: 0.375rem 0.75rem; }
-
-    @media (min-width: 640px) {
-      .hero-text h1 { font-size: 3rem; }
-      .hero-buttons { flex-direction: row; justify-content: center; }
-    }
-    @media (min-width: 1024px) {
-      #hero { padding-top: 8rem; }
-      .hero-grid { grid-template-columns: repeat(5, 1fr); }
-      .hero-text { text-align: left; grid-column: span 3; }
-      .hero-text > p { margin-left: 0; }
-      .hero-buttons { justify-content: flex-start; }
-      .hero-image-wrapper { grid-column: span 2; }
-    }
-
-    /* About Section */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-    .about-main h3, .about-aside h4 { font-size: 1.25rem; font-weight: bold; color: white; }
-    .about-main p { margin-top: 0.75rem; color: #94a3b8; }
-    .about-aside ul { margin-top: 1rem; list-style-position: inside; }
-    .about-aside ul li { margin-top: 0.5rem; font-size: 0.875rem; color: #94a3b8; }
-    .about-aside .btn { margin-top: 1rem; }
-    @media (min-width: 768px) {
-      .about-grid { grid-template-columns: repeat(3, 1fr); }
-      .about-main { grid-column: span 2; }
-    }
-    
-    /* Skills Section */
-    .skills-card {
-      max-width: 56rem;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 1.5rem;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .skills-grid h3 { font-size: 1.25rem; font-weight: bold; color: white; }
-    .skills-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .skill-tag {
-      background-color: #334155;
-      color: #cbd5e1;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-    }
-    @media (min-width: 768px) {
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .project-card {
-      background-color: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card img {
-      width: 100%;
-      height: 12rem;
-      object-fit: cover;
-    }
-    .project-card-content {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .project-card-content h3 { font-size: 1.125rem; font-weight: bold; color: white; }
-    .project-card-content p {
-      margin-top: 0.5rem;
-      color: #94a3b8;
-      font-size: 0.875rem;
-      flex-grow: 1;
-    }
-    @media (min-width: 640px) {
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .projects-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    /* Resume Section */
-    .resume-card {
-      max-width: 42rem;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .resume-card h2 { margin-bottom: 0; font-size: 1.5rem; }
-    .resume-card p { margin-top: 0.75rem; color: #94a3b8; }
-    .resume-buttons {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-    }
-    .resume-buttons .btn { width: 100%; }
-    @media (min-width: 640px) {
-      .resume-buttons { flex-direction: row; }
-      .resume-buttons .btn { width: auto; }
-    }
-
-    /* Contact Section */
-    .contact-card {
-      max-width: 32rem;
-      margin: 0 auto;
-    }
-    .contact-card p { text-align: center; color: #94a3b8; }
-    .contact-links { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
-    .contact-links a {
-      display: block;
-      text-align: center;
-      padding: 1rem;
-      background-color: rgba(51, 65, 85, 0.5);
-      border-radius: 0.5rem;
-      text-decoration: none;
-      color: #cbd5e1;
-      transition: background-color 0.2s;
-    }
-    .contact-links a:hover {
-      background-color: #334155;
-    }
-    .contact-links a strong {
-      color: white;
-    }
-    
-    /* Footer */
-    footer {
-      padding: 2rem 0;
-      border-top: 1px solid #334155;
-      text-align: center;
-      color: #64748b;
-      font-size: 0.875rem;
-    }
-    footer .footer-name {
-      font-weight: bold;
-      color: #cbd5e1;
-    }
-    footer p {
-      margin-top: 0.25rem;
-    }
-  </style>
+    <!-- External stylesheet -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <!-- Brand -->
-        <a href="#" class="brand">
-          <div class="brand-logo">JP</div>
-          <div>
-            <p class="brand-text-main">Jinesh Patil</p>
-            <p class="brand-text-sub">Chemical Engineer → Data Scientist & Data Analyst</p>
-          </div>
-        </a>
-        <!-- Desktop Navigation -->
-        <nav>
-          <a href="#hero">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#resume">Resume</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero Section -->
-    <section id="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-text">
-            <h1>Hi — I'm <span class="text-gradient">Jinesh Patil</span></h1>
-            <p>A Chemical Engineer with a passion for problem-solving, now transitioning into the world of Data Science And AI.</p>
-            <div class="hero-buttons">
-              <a href="#projects" class="btn btn-primary">View Projects</a>
-              <a href="#contact" class="btn btn-secondary">Contact Me</a>
-            </div>
-            <p class="hero-status-text">
-              <strong>Seeking:</strong> Entry-level roles or internships in Data Scientist and Data Analyst. Willing to Relocate.
-            </p>
-          </div>
-          <div class="hero-image-wrapper">
-            <div class="card hero-image-card">
-              <img src="./jinesh p.JPG" alt="Jinesh Patil Profile Photo" />
-              <div class="card hero-image-subcard">
-                  <div>
-                    <p>Open to Work</p>
-                    <p>Full-time & Internships</p>
-                  </div>
-                  <a href="#resume" class="btn btn-primary">Resume</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-bg">
-      <div class="container">
-        <h2>About Me</h2>
-        <div class="about-grid">
-          <div class="card about-main">
-            <h3>Chemical Engineer turned Data Enthusiast</h3>
-            <p>I graduated with a Chemical Engineering degree where I honed my skills in analytical problem-solving, process optimization, and data-driven decision making. My final year projects, which involved data analysis and simulation, sparked my interest in programming and web technologies.</p>
-            <p>I'm currently advancing my expertise through online courses in web development and data science, eager to apply my unique blend of engineering and technical skills to new challenges.</p>
-          </div>
-          <aside class="card about-aside">
-            <h4>Quick Facts</h4>
-            <ul>
-              <li><strong>Education:</strong> B.Tech — Chemical Engineering</li>
-              <li><strong>Seeking:</strong> Data Analyst, Data Scientistn</li>
-              <li><strong>Strengths:</strong> Quick learner, hands-on, analytical</li>
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">JP</div>
+                <span>Jinesh Patil</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#resume" class="nav-link">Resume</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <a href="#projects" class="btn btn-secondary">See Projects</a>
-          </aside>
         </div>
-      </div>
-    </section>
+    </nav>
 
-    <!-- Skills Section -->
-    <section id="skills">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="card skills-card">
-            <div class="skills-grid">
-              <div>
-                <h3>Technical Skills</h3>
-                <div class="skills-tags">
-                  <span class="skill-tag">HTML & CSS</span>
-                  <span class="skill-tag">JavaScript</span>
-                  <span class="skill-tag">SQL</span>
-                  <span class="skill-tag">Python</span>
-                </div>
-              </div>
-              <div>
-                <h3>Soft Skills</h3>
-                <div class="skills-tags">
-                  <span class="skill-tag">Analytical Thinking</span>
-                  <span class="skill-tag">Problem Solving</span>
-                  <span class="skill-tag">Team Collaboration</span>
-                  <span class="skill-tag">Communication</span>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section-bg">
+    <section id="home" class="hero">
         <div class="container">
-            <h2>Projects</h2>
+            <div class="hero-content">
+                <h1>Hi — I'm <span class="hero-gradient">Jinesh Patil</span></h1>
+                <p class="hero-subtitle">A Chemical Engineering graduate with a passion for problem-solving, transitioning into the world of Data Science and AI.</p>
+                <div class="hero-status">
+                    <p><strong>Seeking:</strong> Entry-level roles or internships in Data Scientist and Data Analyst positions. Open to relocation.</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary"><span>View Projects</span><span>→</span></a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title">Background & Aspirations</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img src="./jinesh p.JPG" alt="Jinesh Patil" class="about-photo" />
+                </div>
+
+                <div class="about-content">
+                    <h3>Chemical Engineering Graduate</h3>
+                    <p>Recent B.Tech graduate passionate about leveraging data to solve real-world problems. Transitioning from Chemical Engineering to Data Science through continuous learning and hands-on project experience.</p>
+
+                    <div class="quick-facts">
+                        <h4>Quick Facts</h4>
+                        <ul>
+                            <li><strong>Education:</strong> B.Tech Chemical Engineering</li>
+                            <li><strong>Seeking:</strong> Data Analyst, Data Scientist</li>
+                            <li><strong>Status:</strong> Fresher, Open to Work</li>
+                            <li><strong>Location:</strong> Willing to Relocate</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Technical Expertise</span>
+                <h2 class="section-title">Skills & Competencies</h2>
+                <p class="section-description">Core technical and soft skills developed through education and hands-on projects</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML & CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Database Management</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Analytical Thinking</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Quick Learning</span>
+                        <span class="skill-tag">Attention to Detail</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Academic Background</span>
+                <h2 class="section-title">Education</h2>
+                <p class="section-description">Academic qualifications and achievements</p>
+            </div>
+
+            <div class="education-card">
+                <div class="education-item">
+                    <h3>Bachelor of Technology (B.Tech)</h3>
+                    <p class="education-degree">Chemical Engineering</p>
+                    <div class="education-meta">
+                        <span>📅 <strong>Graduated:</strong> 2025</span>
+                        <span>🎓 <strong>Degree:</strong> B.Tech</span>
+                    </div>
+                    <p class="education-description">Completed comprehensive coursework in chemical processes, thermodynamics, process optimization, and data-driven analysis. Final year projects involved extensive data analysis, simulation, and problem-solving using computational tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Professional Development</span>
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-description">Continuous learning and skill development through recognized certifications</p>
+            </div>
+
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="./cert2.png" alt="Python Certification" onerror="this.parentElement.innerHTML='<div style=\'font-size:3rem;color:var(--accent-primary)\'>💻</div>'" />
+                    </div>
+                    <div class="cert-content">
+                        <h3>Python Certification Course</h3>
+                        <p class="cert-issuer">Intellipaat</p>
+                        <p class="cert-date">2026</p>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="./cert1.png" alt="SQL Course Certificate" onerror="this.parentElement.innerHTML='<div style=\'font-size:3rem;color:var(--accent-primary)\'>🎓</div>'" />
+                    </div>
+                    <div class="cert-content">
+                        <h3>SQL Course</h3>
+                        <p class="cert-issuer">Intellipaat</p>
+                        <p class="cert-date">2025</p>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="./cert3.png" alt="Web Development Bootcamp Certificate" onerror="this.parentElement.innerHTML='<div style=\'font-size:3rem;color:var(--accent-primary)\'>🌐</div>'" />
+                    </div>
+                    <div class="cert-content">
+                        <h3>Introduction to Data Science</h3>
+                        <p class="cert-issuer">Cisco</p>
+                        <p class="cert-date">2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">Recent projects demonstrating technical skills and problem-solving abilities</p>
+            </div>
+
             <div class="projects-grid">
-              <article class="project-card">
-                <img src="./image1.png" alt="Portfolio site screenshot">
-                <div class="project-card-content">
-                  <h3>Personal Portfolio Website</h3>
-                  <p>A single-page responsive portfolio built with HTML & CSS to showcase my skills and projects.</p>
-                </div>
-              </article>
-              <article class="project-card">
-                <img src="./image2.png" alt="Blog app screenshot">
-                <div class="project-card-content">
-                  <h3>Interactive Blog Page</h3>
-                  <p>A lightweight, server-side rendered blog application built with Node.js and Express. Inspired by the clean, content-focused design of Paul Graham's essays, this project allows users to create, read, update, and delete posts.</p>
-                </div>
-              </article>
-              <article class="project-card">
-                <img src="./image3.png" alt="Database analysis screenshot">
-                <div class="project-card-content">
-                  <h3>AdventureWorks Database Analysis</h3>
-                  <p>Analyzed enterprise-scale database with 70+ tables. Developed complex SQL queries for customer analytics and sales performance tracking. Implemented time-series analysis for month-over-month business intelligence.</p>
-                </div>
-              </article>
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="./image4.png" alt="Data Analytics Dashboard" onerror="this.style.display='none'" />
+                    </div>
+                    <div class="project-content">
+                        <h3>Strategic Analysis of Netflix Content </h3>
+                        <p>Trained a collaborative-filtering SVD model (scikit-surprise) on the top 100k ratings, validated with 3-fold cross-validation (RMSE), and generated ranked recommendations for an example active user.</p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="./image1.png" alt="Portfolio Website" onerror="this.style.display='none'" />
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A single-page responsive portfolio built with HTML & CSS to showcase skills and projects. Features clean design, smooth animations, and mobile-first responsive layout.</p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="./image2.png" alt="Blog Application" onerror="this.style.display='none'" />
+                    </div>
+                    <div class="project-content">
+                        <h3>Interactive Blog Page</h3>
+                        <p>A lightweight, server-side rendered blog application built with Node.js and Express. Allowing users to create, read, update, and delete posts with clean, content-focused design.</p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="./image3.png" alt="Database Analysis" onerror="this.style.display='none'" />
+                    </div>
+                    <div class="project-content">
+                        <h3>AdventureWorks Database Analysis</h3>
+                        <p>Analyzed enterprise-scale database with 70+ tables. Developed complex SQL queries for customer analytics and sales performance tracking with time-series analysis.</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Resume Section -->
     <section id="resume">
-      <div class="container">
-        <div class="card resume-card">
-          <h2>My Resume</h2>
-          <p>For a detailed look at my experience and qualifications, please download my resume.</p>
-          <div class="resume-buttons">
-            <a href="./Jinesh Patil.pdf" download class="btn btn-primary">Download Resume (PDF)</a>
-            <a href="#contact" class="btn btn-secondary">Contact for Details</a>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My Resume</span>
+                <h2 class="section-title">Professional Documentation</h2>
+            </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-bg">
-      <div class="container">
-        <h2>Get In Touch</h2>
-        <div class="card contact-card">
-            <p>I'm always open to discussing new opportunities. Feel free to reach out through any of the platforms below.</p>
-            <div class="contact-links">
-                <a href="mailto:jineshpatil68@gmail.com">
-                  <strong>Email:</strong> jineshpatil68@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/jinesh-patil" target="_blank" rel="noopener noreferrer">
-                  <strong>LinkedIn:</strong> Jinesh Patil
-                </a>
-                <a href="https://github.com/JineshPatil45" target="_blank" rel="noopener noreferrer">
-                  <strong>GitHub:</strong> JineshPatil45
-                </a>
+            <div class="resume-card">
+                <h3>Download My Resume</h3>
+                <p>For a detailed look at my education, certifications, projects, and qualifications, please download my complete resume.</p>
+                <div class="resume-buttons">
+                    <a href="./Jinesh Patil.pdf" download class="btn btn-primary"><span>📄</span><span>Download Resume (PDF)</span></a>
+                    <a href="#contact" class="btn btn-secondary">Contact for Details</a>
+                </div>
             </div>
         </div>
-      </div>
     </section>
 
-  </main>
+    <section id="contact" class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="section-title">Contact Information</h2>
+                <p class="section-description">Open to discussing opportunities and collaborations</p>
+            </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-        <p class="footer-name">Jinesh Patil</p>
-        <p>Entry-level Web Developer & Data Science Enthusiast</p>
-        <p>&copy; 2025 — Built with HTML & CSS.</p>
-    </div>
-  </footer>
+            <div class="contact-card">
+                <p>I'm actively seeking entry-level opportunities in Data Science and Data Analytics. Feel free to reach out through any of the platforms below.</p>
+                <div class="contact-links">
+                    <a href="mailto:jineshpatil45@gmail.com" class="contact-link">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-info">
+                            <strong>Email</strong>
+                            <span>jineshpatil68@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jinesh-patil" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-info">
+                            <strong>LinkedIn</strong>
+                            <span>Jinesh Patil</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/JineshPatil45" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <div class="contact-icon">🐙</div>
+                        <div class="contact-info">
+                            <strong>GitHub</strong>
+                            <span>JineshPatil45</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <footer>
+        <div class="container">
+            <p class="footer-name">Jinesh Patil</p>
+            <p>Chemical Engineering Graduate | Aspiring Data Scientist & Data Analyst</p>
+            <p>&copy; 2026 Jinesh Patil. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--accent-primary)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
